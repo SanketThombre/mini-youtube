@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+    crossorigin="anonymous"
+  />
+    <title>Dummy Youtube</title>
+
+    <style>
+
+        #container{
+            width: 99%;
+            height: 100%;
+            display: flex;
+        }
+
+        #leftbox {
+            flex: 0.9;
+            border: black 1px solid;
+          /* border-bottom: 0px;
+          border-top: 0px;
+          border-left: 0px; */
+
+        }
+
+        #bars {
+            margin-left: 40%;
+            margin-top: 18px;
+            font-size: 20px;
+        }
+        #home {
+            margin-left: 5%;
+            margin-top: 30px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #home p {
+            font-size: 15px;
+            margin: 5px 0px;
+           
+        }
+
+        #rightbox {
+            flex: 16;
+            margin-left: 1%;
+        }
+
+        #navbar {
+            height: 50px;
+            border: black 1px solid;
+            border-top: 0px;
+            border-left: 0px;
+            border-right: 0px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        #icon {
+            width: 100px;
+            height: 50%;
+            
+        }
+
+        #video {
+            margin-left: 15%;
+            width: 38%;
+            height: 22px;
+            padding: 7px;
+            font-size: 17px;
+            border: gray 0.5px solid;
+        }
+
+        #searchicon {
+  width: 40px;
+  height: 32px;
+  justify-content: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  font-size: 17px;
+  color: rgb(72, 72, 73);
+  font-weight: lighter;
+  background-color: transparent;
+}
+
+#mic {
+    margin-left: 20px;
+    font-size: 22px;
+}
+#apps {
+    margin-left: 2.5%;
+    font-size: 22px;
+}
+
+#plus {
+    margin-left: 17%;
+    font-size: 22px;
+}
+
+#bell {
+
+    margin-left: 2.5%;
+    font-size: 22px;
+
+}
+
+#acc {
+    margin-left: 2.5%;
+    font-size: 27px;
+}
+
+#allbtn {
+    height: 55px;
+    border: black 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+#allbtn button {
+    height: 35px;
+    border-radius: 20px;
+    padding: 5px 15px;
+    border: none;
+    border: gray 1px solid;
+    font-size: 17px;
+    font-weight: 300;
+}
+#allbtn button:hover {
+    color: white;
+    background-color: #172329;
+    cursor: pointer;
+}
+
+        #search_results {
+            width: 100%;
+            
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-gap: 10px;
+            padding: 15px;
+            
+        }
+
+
+
+    </style>
+</head>
+<body style="margin: 0px;">
+
+    <div id="container">
+    <div id="leftbox">
+        <i class="far fa-bars" id="bars"></i>
+
+        <div id="home">
+            <i class="far fa-home-lg-alt" ></i> 
+            <p>Home</p>
+        </div>
+        <div id="home">
+            <i class="far fa-compass"></i>
+            <p>Explorer</p>
+        </div>
+        <div id="home">
+            <i class="fab fa-youtube"></i>
+            <p>Subscription</p>
+        </div>
+        <div id="home">
+            <i class="far fa-play-circle"></i>
+            <p>Library</p>
+        </div>
+    </div>
+
+<div id="rightbox">
+    <div id="navbar">
+
+        <div id="icon">
+            <a href="Es6.html"><img src="https://tse4.mm.bing.net/th?id=OIP.xxNZm92rz6ZHHChoF2zZSAHaBp&pid=Api&P=0&w=506&h=112" alt="YT icon" height="100%" width="100%"></a>
+        </div>
+
+    <input type="text" id="video" placeholder="Search">
+    <button onclick="searchVideo()" ><i id="searchicon" class="fas fa-search" style="border: none;"></i></button>
+
+    <i class="fas fa-microphone" id="mic"></i>
+
+    <i class="fal fa-video-plus" id="plus"></i>
+
+    <i class="fas fa-th" id="apps"></i>
+
+    <i class="far fa-bell" id="bell"></i>
+
+    <i class="fas fa-user-circle" id="acc"></i>
+
+</div>
+
+<div id="allbtn">
+    <button>All</button>
+    <button>Music</button>
+    <button>Pubg Mobile</button>
+    <button>Movies</button>
+    <button>Java Script</button>
+    <button>Basketball</button>
+    <button>Coding</button>
+    <button>Cricket</button>
+    <button>Tollywood</button>
+    <button>Maharashtra</button>
+    <button>Comedy</button>
+    <button>Roller Coaster</button>
+</div>
+    <div id="search_results"></div>
+</div>
+
+</div>
+</body>
+</html>
+
+<script>
+   
+
+    const results_div = document.getElementById("search_results");
+
+
+    const Api = "AIzaSyD76VrkoQa6eSefssEWgFW0-b4Z-dSISMs";
+
+
+    async function popular(){
+
+       
+ try{
+    
+       let response = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=mostPopularinIndia&type=video&key=${Api}&maxResults=20`)
+
+       let data = await response.json();
+       
+       let videos = data.items;
+
+       videos.forEach(({id:{videoId},snippet}) => {
+
+        let div = document.createElement("div");
+
+let title = document.createElement("p");
+title.innerText = snippet.title;
+
+let thumbnail = document.createElement("img");
+thumbnail.src= snippet.thumbnails.medium.url;
+
+var value = "mostPopularinIndia";
+let data_to_send = {
+    snippet,
+    videoId,
+    video_query : value
+}
+
+div.onclick = () => {
+
+    showVideo(data_to_send)
+
+}
+
+
+//results_div.append(thumbnail,title);
+
+div.append(thumbnail,title);
+
+results_div.append(div);
+
+
+       });
+
+      // showvideos(videos);
+
+       //console.log("videos:",videos);
+}
+catch(err){
+console.log(err);
+}
+   }
+
+   popular();
+    
+   let video_query;
+
+    async function searchVideo(){
+
+       
+ try{
+         video_query = document.querySelector("#video").value;
+
+        let response = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${video_query}&type=video&key=${Api}&maxResults=20`)
+
+        let data = await response.json();
+        
+
+        let videos = data.items;
+
+        showvideos(videos);
+
+
+        console.log("videos:",videos);
+ }
+ catch(err){
+console.log(err);
+ }
+    }
+
+
+    const showvideos = (items) => {
+
+        results_div.innerHTML = null;
+
+        items.forEach(( {id : {videoId},snippet}) => {
+
+            console.log("el:",snippet);
+
+           
+            let div = document.createElement("div");
+
+            let title = document.createElement("p");
+            title.innerText = snippet.title;
+
+            let thumbnail = document.createElement("img");
+            thumbnail.src= snippet.thumbnails.medium.url;
+
+            let data_to_send = {
+                snippet,
+                videoId,
+                video_query
+            }
+
+            div.onclick = () => {
+
+                showVideo(data_to_send)
+
+      }
+
+
+            //results_div.append(thumbnail,title);
+
+            div.append(thumbnail,title);
+
+            results_div.append(div);
+
+        });
+
+    };
+
+
+    function showVideo(data){
+
+
+        localStorage.setItem("clicked_video",JSON.stringify(data))
+
+        window.location.href = "video.html";
+    }
+
+</script>
